@@ -1,47 +1,87 @@
-// function to generate markdown for README
+// License details used for the badge and the License section
+const LICENSES = {
+  MIT: {
+    badge: "MIT-yellow",
+    url: "https://opensource.org/licenses/MIT",
+  },
+  "Apache 2.0": {
+    badge: "Apache_2.0-blue",
+    url: "https://opensource.org/licenses/Apache-2.0",
+  },
+  "GPL 3.0": {
+    badge: "GPLv3-blue",
+    url: "https://www.gnu.org/licenses/gpl-3.0",
+  },
+  "BSD 3": {
+    badge: "BSD_3--Clause-orange",
+    url: "https://opensource.org/licenses/BSD-3-Clause",
+  },
+};
+
+function renderLicenseBadge(license) {
+  const details = LICENSES[license];
+  if (!details) return "";
+  return `[![License: ${license}](https://img.shields.io/badge/License-${details.badge}.svg)](${details.url})`;
+}
+
+function renderLicenseSection(license) {
+  const details = LICENSES[license];
+  if (!details) return "This project is not currently licensed.";
+  return `This project is licensed under the [${license} license](${details.url}).`;
+}
+
+// Turn answers into the README text
 function generateMarkdown(data) {
+  const badge = renderLicenseBadge(data.license);
+
   return `# ${data.title}
+${badge ? `\n${badge}\n` : ""}
+## Description
 
-  ![GitHub license](https://img.shields.io/badge/license-${data.license}-blue.svg)
+${data.description}
 
-  ## Description of project
+## Table of Contents
 
-  ${data.description}
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-  ## Table of Contents
+## Installation
 
-  ["Contributing Guidlines"](#contributing-guidlines)
+Install the dependencies by running:
 
-  ["Questions"](#questions)
+\`\`\`bash
+${data.installation}
+\`\`\`
 
-  ["Install Guide"](#install-guide)
+## Usage
 
-  ["Tests"](#tests)
+${data.usage}
 
-  ["Licensing"](#licnesing)
+## License
 
-  ## Contributing Guidlines
+${renderLicenseSection(data.license)}
 
-  Thanks to ${data.contributing}.
+## Contributing
 
-  ## Questions
+${data.contributing}
 
-  You can reach me for questions at ${data.email} or find me on Github here ${data.Github}.
-  
-  ## Install Guide
+## Tests
 
-  You can install the required dependencies with this command in the command line: ${data.installation}
+Run the tests with:
 
-  ## Tests
+\`\`\`bash
+${data.test}
+\`\`\`
 
-  Run tests in the command line with this command: ${data.test}.
+## Questions
 
-  ## Liscensing
-
-  This project is under the ${data.license}
-
-
+Have a question? Find me on GitHub at [${data.github}](https://github.com/${data.github}) or email me at [${data.email}](mailto:${data.email}).
 `;
 }
 
 module.exports = generateMarkdown;
+module.exports.LICENSES = LICENSES;

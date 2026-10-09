@@ -10,28 +10,32 @@
 
 ## Features
 
-- Interactive prompts in the terminal (powered by [Inquirer](https://www.npmjs.com/package/inquirer))
-- License picker (MIT, Apache 2.0, GPL 3.0, BSD 3, or None) that adds a matching license badge
+- Interactive prompts in the terminal, with validation for required answers and email format
+- Choose a license (MIT, Apache 2.0, GPL 3.0, BSD 3, or None). The license badge and License section are filled in to match.
 - Generated README includes:
-  - Project title and license badge
+  - Title and license badge
   - Description
-  - Table of contents
-  - Contributing guidelines
-  - Questions (your GitHub username and email)
-  - Install guide
-  - Tests
+  - Table of contents with working links
+  - Installation
+  - Usage
   - License
+  - Contributing
+  - Tests
+  - Questions, with links to your GitHub profile and email
+- Writes to `application/output/README.md`, so it never overwrites an existing README
+
+See [`examples/sample-README.md`](examples/sample-README.md) for real output.
 
 ## Built With
 
 - [Node.js](https://nodejs.org/)
-- [Inquirer](https://www.npmjs.com/package/inquirer) v6
+- [Inquirer](https://www.npmjs.com/package/inquirer) v8
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) installed on your machine
+- [Node.js](https://nodejs.org/) 12 or newer
 
 ### Installation
 
@@ -43,36 +47,34 @@ npm install
 
 ### Usage
 
-From the `application` folder, run:
-
 ```bash
-node index.js
+npm start
 ```
 
-Answer the prompts:
+Answer the prompts. When you finish, your README is saved to `application/output/README.md`.
 
 | Prompt | Used for |
 | --- | --- |
-| GitHub username | Questions section |
-| Email address | Questions section |
+| GitHub username | Questions section (profile link) |
+| Email address | Questions section (email link) |
 | Project name | README title |
 | Short description | Description section |
 | License | Badge and License section |
-| Install command (default `npm i`) | Install Guide section |
+| Install command (default `npm install`) | Installation section |
 | Test command (default `npm test`) | Tests section |
-| Usage info | Asked, but not yet added to the generated README |
+| Usage info | Usage section |
 | Contributing info | Contributing section |
-
-When you finish, a new `README.md` is written to the folder you ran the command from.
 
 ## Project Structure
 
 ```
-application/
-├── index.js                 # Prompts and file writing
-├── package.json
-└── utils/
-    └── generateMarkdown.js  # Builds the README text from your answers
+├── examples/
+│   └── sample-README.md     # Example of generated output
+└── application/
+    ├── index.js             # Prompts and file writing
+    ├── package.json
+    └── utils/
+        └── generateMarkdown.js  # Builds the README text and license badge
 ```
 
 ## User Story
