@@ -1,6 +1,12 @@
-# README Generator
+<h1 align="center">📝 README Generator</h1>
 
-A command-line Node.js app that asks you a few questions about your project and writes a ready-to-use `README.md` for it.
+<p align="center">A command-line tool that asks a few questions about your project and writes a professional README.md for you.</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&amp;logo=npm&amp;logoColor=white" alt="npm">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&amp;logo=javascript&amp;logoColor=black" alt="JavaScript">
+</p>
 
 ## Features
 
@@ -54,7 +60,7 @@ Answer the prompts:
 | License | Badge and License section |
 | Install command (default `npm i`) | Install Guide section |
 | Test command (default `npm test`) | Tests section |
-| Usage info | Collected by the prompts |
+| Usage info | Asked, but not yet added to the generated README |
 | Contributing info | Contributing section |
 
 When you finish, a new `README.md` is written to the folder you ran the command from.
@@ -71,11 +77,16 @@ application/
 
 ## User Story
 
+<details>
+<summary>Original assignment user story</summary>
+
 ```
 AS A developer
 I WANT a README generator
 SO THAT I can quickly create a professional README for a new project
 ```
+
+</details>
 
 ## Author
 
