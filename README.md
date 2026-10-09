@@ -1,29 +1,82 @@
+# README Generator
+
+A command-line Node.js app that asks you a few questions about your project and writes a ready-to-use `README.md` for it.
+
+## Features
+
+- Interactive prompts in the terminal (powered by [Inquirer](https://www.npmjs.com/package/inquirer))
+- License picker (MIT, Apache 2.0, GPL 3.0, BSD 3, or None) that adds a matching license badge
+- Generated README includes:
+  - Project title and license badge
+  - Description
+  - Table of contents
+  - Contributing guidelines
+  - Questions (your GitHub username and email)
+  - Install guide
+  - Tests
+  - License
+
+## Built With
+
+- [Node.js](https://nodejs.org/)
+- [Inquirer](https://www.npmjs.com/package/inquirer) v6
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) installed on your machine
+
+### Installation
+
+```bash
+git clone https://github.com/ChristianKrantz11/readme-generator.git
+cd readme-generator/application
+npm install
+```
+
+### Usage
+
+From the `application` folder, run:
+
+```bash
+node index.js
+```
+
+Answer the prompts:
+
+| Prompt | Used for |
+| --- | --- |
+| GitHub username | Questions section |
+| Email address | Questions section |
+| Project name | README title |
+| Short description | Description section |
+| License | Badge and License section |
+| Install command (default `npm i`) | Install Guide section |
+| Test command (default `npm test`) | Tests section |
+| Usage info | Collected by the prompts |
+| Contributing info | Contributing section |
+
+When you finish, a new `README.md` is written to the folder you ran the command from.
+
+## Project Structure
+
+```
+application/
+├── index.js                 # Prompts and file writing
+├── package.json
+└── utils/
+    └── generateMarkdown.js  # Builds the README text from your answers
+```
+
 ## User Story
-``````
+
+```
 AS A developer
 I WANT a README generator
 SO THAT I can quickly create a professional README for a new project
+```
 
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for information about my application repository
-THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-WHEN I enter my project title
-THEN this is displayed as the title of the README
-WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-WHEN I choose a license for my application from a list of options
-THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-WHEN I enter my GitHub username
-THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-WHEN I enter my email address
-THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-WHEN I click on the links in the Table of Contents
-THEN I am taken to the corresponding section of the README
-``````
+## Author
 
-## Video
-
-
-## Instructions
-
-This application is run in the console. Copy the application folder onto your machine, and make sure all dependencies are installed by running "npm install" in the command line. When that is finished, run "node index.js" command in the command line. You will recieve prompts in the console, and the application will render a new README.md file for you.
+[ChristianKrantz11](https://github.com/ChristianKrantz11)
